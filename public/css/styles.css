@@ -1,0 +1,528 @@
+/*Resetear estilos del navegador*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "nunito", sans-serif;
+  scrollbar-color: #9f3647 transparent;
+  scrollbar-width: thin;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+:root {
+  scroll-behavior: smooth;
+}
+
+/*Color de fondo y texto de todo el sitio*/
+body {
+  background-color: #181419;
+  color: white;
+  scroll-behavior: smooth;
+
+}
+
+/*Estilos header*/
+header {
+  position: fixed;
+  z-index:20;
+  top: 0;
+  width: 100%;
+  display: flex;
+  background-color: #9f3647;
+  height: 10vh;
+}
+
+/* header nav */
+.header_nav_links {
+  width: 100%;
+  display: flex;
+  padding: 0 40px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo y Texto */
+.header_logo {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all ease-in-out 500ms;
+}
+
+/* lista de links de navegación */
+.header_list_links {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+}
+
+/*!* header nav items *!*/
+/*.header_items {*/
+/*  margin: 5px;*/
+/*}*/
+
+/* link de navegación*/
+.header_link {
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all ease-in-out 500ms;
+}
+/* efectos hover link de navegacion y logo header */
+.header_link:hover, .header_logo:hover{
+  color:rgb(252, 221, 182);
+  font-weight: bolder;
+}
+
+.header_link-login {
+  padding: 10px 14px;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  background-color: #000;
+  color: white;
+  transition: all ease-in-out 500ms;
+}
+
+.header_link-login:hover{
+  background-color: whitesmoke;
+  color:#9f3647;
+}
+
+/* Contenido principal */
+/* .main_container {
+} */
+
+/* Contenido principal - Registrarse */
+.main_register {
+  margin-top: 10vh;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-position: center;
+  background-image: linear-gradient(to right top, #0000008a, #0000008a),
+    url("../../public/images/banner-bg.jpg");
+  background-size: cover;
+}
+
+/*Titulo principal*/
+.main_register-title {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/*Titulo secundario*/
+.main_register-subTitle {
+  font-size: 2.2rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+/*Botón registrar*/
+.main_register_btn {
+  margin-top: 1rem;
+  padding: 15px 25px;
+  background-color: #9f3647;
+  color: white;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color ease-in-out 500ms;
+}
+
+/*Sección buscar menú principal*/
+.main_search_container {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/*titulo search*/
+.main_search_title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/*form input search*/
+.main_search_input {
+  width: 26%;
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  font-size: 1.2rem;
+}
+
+.main_search_input:focus{
+  outline: none;
+  border:transparent;
+  outline-offset: -2px;
+  box-shadow: 0 0 4px 5px #9f3647;
+}
+
+/*Formulario buscador de peliculas*/
+.main_search_form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+/*boton form search*/
+.main_search_btn {
+  height: 50px;
+  padding: 0 20px;
+  margin: 20px 10px;
+  border-radius: 50px;
+  color: white;
+  background-color: #9f3647;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: 2px solid white;
+  transition: background-color ease-in-out 500ms;
+}
+
+/*linea divisoria*/
+.line_divisor {
+  width: 80%;
+  margin: auto;
+  border: 1px solid #9f3647;
+}
+
+/*sección peliculas - tendencias*/
+.main_trends {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+}
+
+/*botones tendencias anterior - siguiente */
+.main_trends_btn {
+  background-color: #9f3647;
+  width: 110px;
+  margin-top: 1rem;
+  padding: 1rem;
+  font-size: 1rem;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 1px solid white;
+  margin-right: 1rem;
+  transition: background-color ease-in-out 500ms;
+}
+
+/*Sección peliculas - aclamadas*/
+.main_acclaimed {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 2re  m;
+  margin-bottom:
+  height:100%; 3rem;
+}
+
+/* Footer */
+footer {
+  display: flex;
+  justify-content: center;
+  justify-content: center;
+  align-items: center;
+  background-color: #9f3647;
+  padding: 20px;
+  height: 15vh;
+}
+
+/* footer nav */
+.footer_list_links {
+  list-style: none;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/*items footer*/
+.footer_item {
+  margin-right: 1.5rem;
+}
+
+/* footer link */
+.footer_link {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/*footer - link activo*/
+.footer_link-active {
+  background-color: #181419;
+  color: white;
+  padding: 0.5rem 0.7rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/*botón ir arriba*/
+.btn_top {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 1.8rem;
+}
+
+.btn_top_image:hover{
+  background-color: rgb(54, 54, 56);
+  border-radius: 50%;
+}
+
+ /*  Quitar márgenes */
+ .no-margin{
+  margin:0;
+}
+
+/* Sección Pelicuas - Tendencias */
+/* Contenedor de todas las peliculas */
+.trends_container{
+  width: 80%;
+  display: flex;
+  gap:4rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin:4rem auto;
+}
+
+/* Contenedor de pelicula */
+.trend_container{
+  position:relative;
+  width: 200px;
+  overflow: hidden;
+}
+
+/* imágen de pelicula */
+.trend_image{
+  width: 100%;
+  object-fit: contain;
+  border-radius: 15px;
+  transition: all ease-in-out 300ms;
+}
+
+/* Efecto al pasar el mouse sobre las cards */
+/* contenedor en efecto hover */
+.trend_container-hover{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  top:0;
+  padding: 10px;
+  text-align: center;
+  color:white;
+  border-radius: 15px;
+  opacity: 0;
+  transition: all ease-in-out 900ms;
+  transform: scale(1);
+}
+/* titulo en efecto hover */
+.trend_title-hover{
+  text-shadow: 1px 1px 3px black;
+  font-size: 1.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Reviews en efecto hover */
+.trend_review-hover{
+  margin-top:20px;
+  font-size: 1.2rem;
+}
+
+/* Imágen en efecto hover */
+.trend_image-hover{
+  width: 40%;
+  margin-top:1rem;
+  filter: contrast(60%);
+  transform: rotateY(-180deg);
+  transition: transform ease-in-out 1s;
+}
+
+/* aL hacer hover en card aplicar el efecto en la imágen */
+.trend_container:hover .trend_image{
+  filter: blur(2px) grayscale(1) contrast(20%);
+  transform: scale(0.98);
+}
+
+/* al hacer hover en la card mostrar el contenido oculto aplicando algunos estilos */
+.trend_container:hover .trend_container-hover{
+transform: scale(0.98);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* al hacer hover en la card aplicar efecto sobre imágen que se muestra en el hover  */
+.trend_container:hover .trend_image-hover{
+  transform: rotateY(0deg);
+}
+
+/* Sección Pelicuas - Aclamadas */
+/* Contenedor de todas las peliculas */
+.acclaimeds_container{
+  width: 80%;
+  display: flex;
+  flex-wrap: nowrap;
+  gap:2.8rem;
+  margin: 4rem auto;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #9f3647 #33333333;
+}
+
+
+/* Contenedor de pelicula */
+.acclaimed_container{
+  width: 160px;
+  min-width: 160px;
+  margin-bottom: 1rem;
+}
+
+/* Imagen aclamadas */
+.acclaimed_image{
+  width: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+/* efectos botones hover */
+.main_trends_btn:hover, .main_register_btn:hover, .main_search_btn:hover, .form_btn:hover{
+  background-color: #812b3a;
+}
+
+/* *************************************************************************************************************************** */
+
+/* Estilos página de Registro - Login */
+
+/* Imágen de fondo */
+.register_container{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(to left bottom , #000000, #000000), url('../images/fondo_movie.png');
+}
+
+/* main página de registrarse */
+.register_main_container{
+  position: absolute;
+  /* display: flex; */
+  /* margin: auto; */
+  width: 100%;
+  /* height: 100%; */
+}
+
+/* contenedor formulario de registro */
+.register_form_container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: #222222;
+  width: 30%;
+  margin: 9rem auto 5rem auto;
+  padding: 20px 10px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px 2px #000;
+}
+
+/* titulo de formulario de registro */
+.register_form_title{
+  font-size: 2rem;
+}
+
+/* Formulario de registro */
+
+.register_form{
+  display: flex;
+  flex-direction: column;
+  gap:25px;
+  width: 80%;
+  margin-top: 40px;
+}
+
+/* input formulario */
+.form_input{
+  font-size: 1.3rem;
+  padding: 8px 15px;
+  border-radius: 40px;
+  outline: none;
+  border: 2px solid #9f3647;
+  background: transparent;
+  color:silver;
+}
+/* color de placeholder del input de fecha  */
+input[type="date"]{
+  color:grey;
+}
+
+.form_select{
+  font-size:1rem;
+  color:grey;
+}
+
+/* cmbiar color al hacer foco en input */
+.form_input:focus{
+  border:2px solid #911c2f;
+}
+
+/* estilos link de formulario */
+.form_link{
+  font-size: 0.9rem;
+  text-decoration: none;
+  color:gray;
+  transition: color ease-in-out 500ms;
+}
+/* efecto hover link */
+.form_link:hover{
+  color:rgb(179, 174, 174);
+}
+
+/* texto de términos y condiciones */
+.form_terms_text{
+  font-size: small;
+  margin-left: 5px;
+  color: silver;
+}
+/* terminos y condiciones */
+.form_container_terms{
+  display: flex;
+  align-items: center;
+}
+/* Boton del formulario */
+.form_btn{
+  font-size: 1.2rem;
+  padding: 10px 5px;
+  border-radius: 7px;
+  background-color: #9f3647;
+  color:white;
+  border: none;
+  transition: background-color ease-in-out 500ms;
+}
