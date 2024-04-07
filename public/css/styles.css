@@ -427,7 +427,7 @@ transform: scale(0.98);
 .register_container{
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: linear-gradient(to left bottom , #000000, #000000), url('/public/images/fondo_movie.png');
+  background-image: linear-gradient(to left bottom , #000000, #000000), url('../images/fondo_movie.png');
 }
 
 /* main página de registrarse */
