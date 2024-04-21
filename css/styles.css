@@ -118,21 +118,6 @@ header {
   display: none;
 }
 
-/* Efectos botón toggle menú  TODO:Corregir para usar con javascript */
-/*.btn_menu_toggle:hover .btn_menu_toggle-open {*/
-/*  opacity: 0;*/
-/*}*/
-
-/*.btn_menu_toggle:hover .btn_menu_toggle-close {*/
-/*  opacity: 1;*/
-/*}*/
-
-
-/* Contenido principal */
-.main_container {
-  /*width: 100%;*/
-}
-
 /* Contenido principal - Registrarse */
 .main_register {
   margin-top: 10vh;
@@ -178,12 +163,7 @@ header {
 /*Sección buscar menú principal*/
 .main_search_container {
   margin: 70px auto;
-  /*height: 50vh;*/
-  /*display: flex;*/
-  /*flex-direction: column;*/
-  /*justify-content: center;*/
-  /*text-align: center;*/
-  /*margin-bottom: 2rem;*/
+  transition: opacity 3s ease-in-out;
 }
 
 /*titulo search*/
@@ -209,19 +189,10 @@ header {
   box-shadow: 0 0 4px 5px #9f3647;
 }
 
-/*Formulario buscador de peliculas*/
-.main_search_form {
-  /*display: flex;*/
-  /*justify-content: center;*/
-  /*align-items: center;*/
-  /*margin-top: 1rem;*/
-}
-
 /*boton form search*/
 .main_search_btn {
   height: 50px;
   padding: 0 20px;
-  /*margin: 20px 10px;*/
   border-radius: 50px;
   color: white;
   background-color: #9f3647;
@@ -251,14 +222,12 @@ header {
 .main_trends_btn {
   background-color: #9f3647;
   width: 110px;
-  /*margin-top: 1rem;*/
   padding: 1rem;
   font-size: 1rem;
   color: white;
   font-weight: bold;
   border-radius: 5px;
   border: 1px solid white;
-  /*margin-right: 1rem;*/
   transition: background-color ease-in-out 500ms;
 }
 
@@ -271,28 +240,15 @@ header {
   height: 100%;
 }
 
-/* Footer */
+/* Footer **************************************/
 footer {
-  display: flex;
-  justify-content: center;
-  justify-content: center;
-  align-items: center;
   background-color: #9f3647;
-  padding: 20px;
-  height: 15vh;
 }
 
 /* footer nav */
 .footer_list_links {
   list-style: none;
-  font-size: 1.2rem;
-  display: flex;
-  justify-content: space-evenly;
-}
-
-/*items footer*/
-.footer_item {
-  margin-right: 1.5rem;
+  font-size: 1rem;
 }
 
 /* footer link */
@@ -300,16 +256,35 @@ footer {
   color: white;
   font-weight: bold;
   text-decoration: none;
+  transition: all ease-in-out 500ms;
+}
+
+/* efectos links footer hover */
+.footer_link:hover {
+  color: rgb(252, 221, 182);
+  font-weight: bolder;
 }
 
 /*footer - link activo*/
 .footer_link-active {
   background-color: #181419;
   color: white;
-  padding: 0.5rem 0.7rem;
+  padding: 0.7rem 0.8rem;
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
+  transition: all ease-in-out 500ms;
+}
+
+/* footer - link activo - hover */
+.footer_link-active:hover {
+  background-color: whitesmoke;
+  color: #9f3647;
+}
+
+/* Estilo copyright footer */
+.footer_copyRight {
+  font-size: 0.8rem;
 }
 
 /*botón ir arriba*/
@@ -331,16 +306,6 @@ footer {
 }
 
 /* Sección Pelicuas - Tendencias */
-/* Contenedor de todas las peliculas */
-.trends_container {
-  /*width: 80%;*/
-  /*display: flex;*/
-  /*gap: 4rem;*/
-  /*justify-content: space-between;*/
-  /*flex-wrap: wrap;*/
-  /*margin: 4rem auto;*/
-}
-
 /* Contenedor de pelicula */
 .trend_container {
   position: relative;
@@ -424,12 +389,8 @@ footer {
 /* Sección Pelicuas - Aclamadas */
 /* Contenedor de todas las peliculas */
 .acclaimeds_container {
-  width: 80%;
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 2.8rem;
-  margin: 4rem auto;
-  overflow: auto;
+  overflow: hidden;
+  scroll-behavior: smooth;
   scrollbar-width: thin;
   scrollbar-color: #9f3647 #33333333;
 }
@@ -438,7 +399,6 @@ footer {
 .acclaimed_container {
   width: 160px;
   min-width: 160px;
-  margin-bottom: 1rem;
 }
 
 /* Imagen aclamadas */
@@ -446,6 +406,31 @@ footer {
   width: 100%;
   object-fit: contain;
   border-radius: 10px;
+}
+
+/* Estilos botones slice aclamadas */
+.acclaimed_btn {
+  display: none;
+  margin-left: 80px;
+  margin-right: 70px;
+  color: whitesmoke;
+  padding: 1px 3px;
+  background: #9f3647;
+  border: none;
+  opacity: 1;
+  border-radius: 4px;
+}
+
+/* Efecto mostrar botones slice cuando estoy en el contenedor aclamadas */
+.acclaimeds:hover .acclaimed_btn {
+  display: block;
+  animation-name: opacity;
+  animation-duration: 1s;
+}
+
+/* ocultar botones slice next/prev - Basado en lo configurado en javascript */
+.acclaimed_btn-hide {
+  visibility: hidden;
 }
 
 /* efectos botones hover */
@@ -471,10 +456,7 @@ footer {
 /* main página de registrarse */
 .register_main_container {
   position: absolute;
-  /* display: flex; */
-  /* margin: auto; */
   width: 100%;
-  /* height: 100%; */
 }
 
 /* contenedor formulario de registro */
@@ -567,6 +549,40 @@ input[type="date"] {
   color: white;
   border: none;
   transition: background-color ease-in-out 500ms;
+}
+
+
+/* ************************************************************************************************/
+/* Animaciones animate.css */
+.anim_slice_up {
+  animation-name: slideInUp, opacity;
+  animation-duration: 2s;
+}
+
+.anim_slice_down {
+  animation-name: slideOutDown, opacityOut;
+  animation-duration: 2s;
+}
+
+/* Animación secciones opacidad */
+/* Aparecer */
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Desaparecer */
+@keyframes opacityOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 /* MEDIA QUERIES *************************************************************************** */
@@ -693,6 +709,22 @@ input[type="date"] {
   .main_search_title {
     font-size: 2.1rem;
   }
+
+  /* Mostrar scroll - peliculas aclamadas */
+  .acclaimeds_container {
+    overflow: auto;
+    padding-bottom: 30px;
+  }
+
+  /*  Estilos botones scroll alcamadas */
+  .acclaimeds:hover .acclaimed_btn {
+    display: none;
+  }
+
+  /* copyright */
+  .footer_copyRight {
+    font-size: 0.6rem;
+  }
 }
 
 /* ********************************************************************************* */
@@ -727,5 +759,11 @@ input[type="date"] {
   /* ancho botón anterior/siguiente */
   .main_trends_btn {
     width: 70px;
+  }
+
+  /* Mostrar scroll */
+  .acclaimeds_container {
+    overflow: auto;
+    padding-bottom: 30px;
   }
 }

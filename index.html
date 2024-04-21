@@ -72,12 +72,12 @@
 </header>
 <!-- Fin encabezado-->
 <!-- Contenido principal del sitio -->
-<main class="container-fluid main_container">
+<main class="container-fluid main_container" id="mainContainer">
   <!-- Registrarse -->
   <div class="row text-center">
     <div class="col p-0">
       <section
-        class="main_register animate__animated animate__zoomIn animate_slow">
+        class="main_register animate__animated animate__zoomIn animate_faster">
         <h1 class="main_register-title">
           Películas y series ilimitadas
           <br/>
@@ -93,7 +93,7 @@
   </div>
 
   <!-- Buscar películas -->
-  <section class="container text-center main_search_container">
+  <section class="container text-center main_search_container" id="searchContainer">
     <div class="row">
       <div class="col">
         <h2 class="main_search_title">¿Qué estas buscando para ver?</h2>
@@ -125,7 +125,7 @@
   <section class="container p-5 trends_container" id="trends">
     <div class="row">
       <div class="col">
-        <h3 class="text-center">Las tendencias de hoy</h3>
+        <h3 class="text-center fs-2">Las tendencias de hoy</h3>
       </div>
     </div>
 
@@ -392,166 +392,197 @@
     </div>
   </section>
   <!-- Fin contenedor tendencias -->
+
   <!-- Separar sección con línea -->
   <hr class="line_divisor"/>
-  <!-- Las más aclamadas -->
-  <section class="main_acclaimed" id="acclaimeds">
-    <h3>Las más aclamadas</h3>
-    <!-- Contenedor aclamadas -->
-    <section class="acclaimeds_container">
-      <!-- aclamada 1 -->
-      <div class="acclaimed_container">
-        <a href="#">
-          <img
-            src="./images/peliculas/aclamada_1.jpg"
-            alt="aclamada 1"
-            class="acclaimed_image"
-          />
-        </a>
-      </div>
-      <!-- aclamada 2 -->
-      <div class="acclaimed_container">
-        <a href="#">
-          <img
-            src="./images/peliculas/aclamada_2.jpg"
-            alt="aclamada 2"
-            class="acclaimed_image"
-          />
-        </a>
-      </div>
-      <!-- aclamada 3 -->
-      <div class="acclaimed_container">
-        <a href="#">
-          <img
-            src="./images/peliculas/aclamada_3.jpg"
-            alt="aclamada 3"
-            class="acclaimed_image"
-          />
-        </a>
-      </div>
-      <!-- aclamada 4 -->
-      <div class="acclaimed_container">
-        <a href="#">
-          <img
-            src="./images/peliculas/aclamada_4.jpg"
-            alt="aclamada 4"
-            class="acclaimed_image"
-          />
-        </a>
-      </div>
-      <!-- aclamada 5 -->
-      <div class="acclaimed_container">
-        <a href="#">
-          <img
-            src="./images/peliculas/aclamada_5.jpg"
-            alt="aclamada 5"
-            class="acclaimed_image"
-          />
-        </a>
-      </div>
-      <!-- aclamada 6 -->
-      <div class="acclaimed_container">
-        <a href="#">
-          <img
-            src="./images/peliculas/aclamada_6.jpg"
-            alt="aclamada 6"
-            class="acclaimed_image"
-          />
-        </a>
-      </div>
-      <!-- aclamada 7 -->
-      <div class="acclaimed_container">
-        <a href="#">
-          <img
-            src="./images/peliculas/aclamada_7.jpg"
-            alt="aclamada 7"
-            class="acclaimed_image"
-          />
-        </a>
-      </div>
-      <!-- aclamada 8 -->
-      <div class="acclaimed_container">
-        <a href="#">
-          <img
-            src="./images/peliculas/aclamada_8.jpg"
-            alt="aclamada 8"
-            class="acclaimed_image"
-          />
-        </a>
-      </div>
-      <!-- aclamada 9 -->
-      <div class="acclaimed_container">
-        <a href="#">
-          <img
-            src="./images/peliculas/aclamada_9.jpg"
-            alt="aclamada 9"
-            class="acclaimed_image"
-          />
-        </a>
-      </div>
-      <!-- aclamada 10 -->
-      <div class="acclaimed_container">
-        <a href="#">
-          <img
-            src="./images/peliculas/aclamada_10.jpg"
-            alt="aclamada 10"
-            class="acclaimed_image"
-          />
-        </a>
-      </div>
-      <!-- aclamada 11 -->
-      <div class="acclaimed_container">
-        <a href="#">
-          <img
-            src="./images/peliculas/aclamada_11.jpg"
-            alt="aclamada 11"
-            class="acclaimed_image"
-          />
-        </a>
-      </div>
-      <!-- aclamada 12 -->
-      <div class="acclaimed_container">
-        <a href="#">
-          <img
-            src="./images/peliculas/aclamada_12.jpg"
-            alt="aclamada 12"
-            class="acclaimed_image"
-          />
-        </a>
-      </div>
-    </section>
 
+  <!-- Las más aclamadas -->
+  <section class="container p-5" id="acclaimeds">
+    <div class="row">
+      <div class="col">
+        <h3 class="text-center fs-2">Las más aclamadas</h3>
+      </div>
+    </div>
+    <!-- Contenedor aclamadas -->
+    <div class="row acclaimeds">
+      <div class="col position-relative p-md-5">
+        <section
+          class="d-flex gap-md-5 gap-3 mt-5 mt-md-0 px-md-3 align-items-center acclaimeds_container"
+          id="acclaimedsContainer">
+          <button class="position-absolute start-0 fs-2 acclaimed_btn" id="acclaimedBtnPrev"><i
+            class="fa-solid fa-angle-left"></i></button>
+          <button class="position-absolute end-0 fs-2 acclaimed_btn" id="acclaimedBtnNext"><i
+            class="fa-solid fa-angle-right"></i></button>
+          <!-- aclamada 1 -->
+          <div class="acclaimed_container">
+            <a href="#">
+              <img
+                src="./images/peliculas/aclamada_1.jpg"
+                alt="aclamada 1"
+                class="acclaimed_image"
+              />
+            </a>
+          </div>
+          <!-- aclamada 2 -->
+          <div class="acclaimed_container">
+            <a href="#">
+              <img
+                src="./images/peliculas/aclamada_2.jpg"
+                alt="aclamada 2"
+                class="acclaimed_image"
+              />
+            </a>
+          </div>
+          <!-- aclamada 3 -->
+          <div class="acclaimed_container">
+            <a href="#">
+              <img
+                src="./images/peliculas/aclamada_3.jpg"
+                alt="aclamada 3"
+                class="acclaimed_image"
+              />
+            </a>
+          </div>
+          <!-- aclamada 4 -->
+          <div class="acclaimed_container">
+            <a href="#">
+              <img
+                src="./images/peliculas/aclamada_4.jpg"
+                alt="aclamada 4"
+                class="acclaimed_image"
+              />
+            </a>
+          </div>
+          <!-- aclamada 5 -->
+          <div class="acclaimed_container">
+            <a href="#">
+              <img
+                src="./images/peliculas/aclamada_5.jpg"
+                alt="aclamada 5"
+                class="acclaimed_image"
+              />
+            </a>
+          </div>
+          <!-- aclamada 6 -->
+          <div class="acclaimed_container">
+            <a href="#">
+              <img
+                src="./images/peliculas/aclamada_6.jpg"
+                alt="aclamada 6"
+                class="acclaimed_image"
+              />
+            </a>
+          </div>
+          <!-- aclamada 7 -->
+          <div class="acclaimed_container">
+            <a href="#">
+              <img
+                src="./images/peliculas/aclamada_7.jpg"
+                alt="aclamada 7"
+                class="acclaimed_image"
+              />
+            </a>
+          </div>
+          <!-- aclamada 8 -->
+          <div class="acclaimed_container">
+            <a href="#">
+              <img
+                src="./images/peliculas/aclamada_8.jpg"
+                alt="aclamada 8"
+                class="acclaimed_image"
+              />
+            </a>
+          </div>
+          <!-- aclamada 9 -->
+          <div class="acclaimed_container">
+            <a href="#">
+              <img
+                src="./images/peliculas/aclamada_9.jpg"
+                alt="aclamada 9"
+                class="acclaimed_image"
+              />
+            </a>
+          </div>
+          <!-- aclamada 10 -->
+          <div class="acclaimed_container">
+            <a href="#">
+              <img
+                src="./images/peliculas/aclamada_10.jpg"
+                alt="aclamada 10"
+                class="acclaimed_image"
+              />
+            </a>
+          </div>
+          <!-- aclamada 11 -->
+          <div class="acclaimed_container">
+            <a href="#">
+              <img
+                src="./images/peliculas/aclamada_11.jpg"
+                alt="aclamada 11"
+                class="acclaimed_image"
+              />
+            </a>
+          </div>
+          <!-- aclamada 12 -->
+          <div class="acclaimed_container">
+            <a href="#">
+              <img
+                src="./images/peliculas/aclamada_12.jpg"
+                alt="aclamada 12"
+                class="acclaimed_image"
+              />
+            </a>
+          </div>
+        </section>
+      </div>
+    </div>
     <!-- Fin contenedor aclamadas-->
   </section>
   <!-- Fin peliculas aclamadas -->
 </main>
 <!-- Fin contenido principal -->
 <!-- Footer - Links de navegación - Botón ir a top  -->
-<!--<footer>-->
-<!--  &lt;!&ndash; links de navagación - footer &ndash;&gt;-->
-<!--  <nav class="footer_links">-->
-<!--    <ul class="footer_list_links">-->
-<!--      <li class="footer_item">-->
-<!--        <a href="#" class="footer_link">Términos y condiciones</a>-->
-<!--      </li>-->
-<!--      <li class="footer_item">-->
-<!--        <a href="#" class="footer_link">Preguntas frecuentes</a>-->
-<!--      </li>-->
-<!--      <li class="footer_item"><a href="#" class="footer_link">Ayuda</a></li>-->
-<!--      <li class="footer_item">-->
-<!--        <a href="#" class="footer_link-active">Administrador Peliculas</a>-->
-<!--      </li>-->
-<!--    </ul>-->
-<!--  </nav>-->
-<!--  &lt;!&ndash; Botón ir arriba&ndash;&gt;-->
-<!--  <a href="#" class="btn_top">-->
-<!--    <img-->
-<!--      src="./images/flecha-hacia-arriba.svg"-->
-<!--      alt="Ir arriba flecha"-->
-<!--      class="btn_top_image"-->
-<!--    />-->
-<!--  </a>-->
-<!--</footer>-->
+<footer class="container-fluid">
+  <!-- links de navagación - footer -->
+  <div class="container py-5 position-relative">
+
+    <div class="row mb-2 mb-md-0">
+      <div class="col">
+        <nav class="footer_links">
+          <ul
+            class="footer_list_links d-flex row-gap-3 flex-md-row flex-column justify-content-md-evenly align-items-center p-0">
+            <li class="footer_item">
+              <a href="#" class="footer_link">Términos y condiciones</a>
+            </li>
+            <li class="footer_item">
+              <a href="#" class="footer_link">Preguntas frecuentes</a>
+            </li>
+            <li class="footer_item"><a href="#" class="footer_link">Ayuda</a></li>
+            <li class="footer_item">
+              <a href="#" class="footer_link-active">Administrador Peliculas</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <!-- CopyRight -->
+    <div class="row w-100 text-center bottom-0 position-absolute">
+      <div class="col">
+        <p class="footer_copyRight">&copy; CAC - Leandro Wagner - 2024</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botón ir arriba-->
+  <a href="#mainContainer" class="btn_top">
+    <img
+      src="./images/flecha-hacia-arriba.svg"
+      alt="Ir arriba flecha"
+      class="btn_top_image"
+    />
+  </a>
+</footer>
 <!-- Fin footer-->
 <!-- Enlace script index.js-->
 <script src="./js/index.js"></script>
