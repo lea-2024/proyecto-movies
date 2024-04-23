@@ -163,7 +163,8 @@ header {
 /*Sección buscar menú principal*/
 .main_search_container {
   margin: 70px auto;
-  transition: opacity 3s ease-in-out;
+  opacity: 0;
+  /*transition: opacity 3s ease-in-out;*/
 }
 
 /*titulo search*/
@@ -233,11 +234,7 @@ header {
 
 /*Sección peliculas - aclamadas*/
 .main_acclaimed {
-  margin-top: 1.5rem;
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 3rem;
-  height: 100%;
+  opacity: 0;
 }
 
 /* Footer **************************************/
@@ -306,6 +303,11 @@ footer {
 }
 
 /* Sección Pelicuas - Tendencias */
+/* contenedores de peliculas */
+.trends_container {
+  opacity: 0;
+}
+
 /* Contenedor de pelicula */
 .trend_container {
   position: relative;
@@ -447,7 +449,7 @@ footer {
 
 /* Imágen de fondo */
 .register_container {
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-size: cover;
   background-image: linear-gradient(to left bottom, #000000, #000000),
   url("../images/fondo_movie.png");
@@ -455,57 +457,85 @@ footer {
 
 /* main página de registrarse */
 .register_main_container {
+  margin-top: 10vh;
   position: absolute;
   width: 100%;
 }
 
 /* contenedor formulario de registro */
 .register_form_container {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
+  /*display: flex;*/
+  /*justify-content: center;*/
+  /*flex-direction: column;*/
+  /*align-items: center;*/
   background-color: #222222;
-  width: 30%;
-  margin: 9rem auto 5rem auto;
-  padding: 20px 10px;
-  border-radius: 15px;
+  /*width: 30%;*/
+  /*margin: 9rem auto 5rem auto;*/
+  /*padding: 20px 10px;*/
+  /*border-radius: 15px;*/
   box-shadow: 0 0 10px 2px #000;
 }
 
 /* titulo de formulario de registro */
-.register_form_title {
-  font-size: 2rem;
-}
+/*.register_form_title {*/
+/*  font-size: 2rem;*/
+/*}*/
 
 /* Formulario de registro */
 
 .register_form {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  width: 80%;
-  margin-top: 40px;
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  /*gap: 25px;*/
+  /*width: 80%;*/
+  /*margin-top: 40px;*/
 }
 
 /* input formulario */
 .form_input {
   font-size: 1.3rem;
   padding: 8px 15px;
-  border-radius: 40px;
+  border-radius: 7px;
   outline: none;
   border: 2px solid #9f3647;
   background: transparent;
   color: silver;
 }
 
+/* Registrarse - input date - mostrar texto como placeholder para que se vea en dispositivos mobiles */
+.form_input-date {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  left: 0;
+  margin-left: 1px;
+  margin-top: 1px;
+  font-size: 1.3rem;
+  padding: 8px 15px;
+  /*border-radius: 7px;*/
+  outline: none;
+  /*border: 2px solid #9f3647;*/
+  background: transparent;
+  color: gray;
+  z-index: -1;
+}
+
+/* ocultar el icono de calendario del input date */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  /*width: 100%;*/
+  z-index: 1;
+}
+
 /* color de placeholder del input de fecha  */
 input[type="date"] {
-  color: grey;
+  color: transparent;
 }
 
 .form_select {
-  font-size: 1rem;
+  font-size: 1.3rem;
   color: grey;
 }
 
@@ -555,13 +585,9 @@ input[type="date"] {
 /* ************************************************************************************************/
 /* Animaciones animate.css */
 .anim_slice_up {
-  animation-name: slideInUp, opacity;
-  animation-duration: 2s;
-}
-
-.anim_slice_down {
-  animation-name: slideOutDown, opacityOut;
-  animation-duration: 2s;
+  animation-name: zoomIn;
+  animation-duration: 1s;
+  opacity: 1;
 }
 
 /* Animación secciones opacidad */
