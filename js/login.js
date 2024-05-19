@@ -87,7 +87,7 @@ const messageSuccess = () => {
     }
   }).then((result) => {
     if (result.dismiss === Swal.DismissReason.timer) {
-      location.href = "/";
+      location.href = "https://lea-2024.github.io/proyecto-movies/";
     }
   });
 }
