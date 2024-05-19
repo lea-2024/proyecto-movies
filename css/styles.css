@@ -483,13 +483,13 @@ footer {
 
 /* Formulario de registro */
 
-.register_form {
+/* .register_form { */
   /*display: flex;*/
   /*flex-direction: column;*/
   /*gap: 25px;*/
   /*width: 80%;*/
   /*margin-top: 40px;*/
-}
+/* } */
 
 /* input formulario */
 .form_input {
@@ -610,6 +610,66 @@ input[type="date"] {
     opacity: 0;
   }
 }
+
+/* Estilos página Api - Rick and Morty */
+/* contenedor de cards */
+.container_api{
+  margin-top: 20vh;
+  min-height: calc(80vh - 138px);
+}
+/* card de personaje */
+.card_character{
+  transform: scale(1);
+  background-color: #9f3647;
+  cursor: pointer;
+  transition: all ease-in-out 500ms;
+}
+.card_character:hover{
+  transform: scale(0.9);
+}
+
+/* Botones next -prev card de personajes */
+.btn_next_prev{
+  padding: 10px 20px;
+  margin: 0 20px;
+  border:2px solid #9f3647;
+  background-color: transparent;
+  color: #9f3647;
+  border-radius: 5px;
+  transition: all ease-in-out 500ms;
+}
+/* efecto hover botón */
+.btn_next_prev:hover{
+  background-color: #9f3647;
+  color: white;
+}
+
+/* botón deshabilitado */
+.btn_next_prev:disabled{
+  opacity: 0.6;
+  cursor: not-allowed;
+  color:black;
+  border: none;
+  background-color: rgb(110, 110, 110);
+}
+
+/* Estilos de spinner loading */
+.spinner_style{
+  color: #9f3647;
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 924px) {
+
+  .header_link{
+    font-size: 0.9rem;
+  }
+  .header_link-login{
+    padding: 10px 9px;
+    font-size: 0.9rem;
+  }
+}
+
 
 /* MEDIA QUERIES *************************************************************************** */
 /* Resoluciones inferiores a 768px */
