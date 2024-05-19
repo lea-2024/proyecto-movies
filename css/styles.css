@@ -287,9 +287,11 @@ footer {
 /*botón ir arriba*/
 .btn_top {
   position: fixed;
+  display: none;
   bottom: 1rem;
   right: 1rem;
   width: 1.8rem;
+  cursor: pointer;
 }
 
 .btn_top_image:hover {

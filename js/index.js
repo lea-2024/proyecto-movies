@@ -1,11 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
-// Referencias
+  // Referencias
   const btnMenuOpen = document.querySelector("#btnMenuOpen"); // referencia Botón abrir menú nav
   const btnMenuClose = document.querySelector("#btnMenuClose"); // referencia Botón cerrar menú nav
   const headerListLinks = document.querySelector("#headerListLinks"); // referencia menú links nav
   const navLinks = document.querySelectorAll(".header_items"); // referencia items links del nav
+  const btnTop = document.querySelector("#btnTop"); // referencia botón top
 
-// abrir menu de navegación responsive
+
+
+  // funcion que muetra/oculta el botón top
+  const showHideBtnTop = () => {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+      btnTop.style.display = "block";
+    } else {
+      btnTop.style.display = "none";
+    };
+  };
+
+  //Evento scroll para llamar a función que muetra/oculta el botón top
+  window.onscroll = () => showHideBtnTop();
+
+  // Función para hacer scroll hacia arriba
+  const goToTop = () => {
+    document.body.scrollTop = 0; // Ir hacia arriba - opción para unos navegadores
+    document.documentElement.scrollTop = 0; // Ir hacia arriba - optimo para otros navegadores
+  };
+
+  //Escuchar evento click en botón Top y llamar a función para hacer scroll hacia arriba
+  btnTop.addEventListener('click', goToTop);
+
+  // abrir menu de navegación responsive
   btnMenuOpen.addEventListener('click', () => {
     headerListLinks.classList.remove('hide_links-animation');
     headerListLinks.classList.add('show_links');
@@ -14,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btnMenuClose.classList.add('btn_menu-active');
   });
 
-// cerrar menu de navegación responsive
+  // cerrar menu de navegación responsive
   btnMenuClose.addEventListener('click', () => {
     headerListLinks.classList.add('hide_links-animation');
     setTimeout(() => {
@@ -24,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btnMenuClose.classList.remove('btn_menu-active');
   });
 
-// Cerrar menú de navegación responsive cuando se hace click en un link
+  // Cerrar menú de navegación responsive cuando se hace click en un link
   for (let link of navLinks) {
     link.addEventListener('click', () => {
       headerListLinks.classList.add('hide_links-animation');
@@ -36,13 +60,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-// acceder al botón tendencias anterior
+  // acceder al botón tendencias anterior
   const btnTrendPrev = document.querySelector("#btnTrendPrev");
-// acceder al botón tendencias siguiente
+  // acceder al botón tendencias siguiente
   const btnTrendNext = document.querySelector("#btnTrendNext");
 
-// Escuchar evento resize al cargar la pagina
-// Escuchar el evento resize para cambiar contenido de botón anterior/siguiente en index tendencias
+  // Escuchar evento resize al cargar la pagina
+  // Escuchar el evento resize para cambiar contenido de botón anterior/siguiente en index tendencias
   window.addEventListener('resize', () => {
     const widthWindow = window.innerWidth; // obtener el ancho de la ventana
     // Si el ancho es inferior a 576px mostrar iconos en botones
@@ -54,25 +78,25 @@ document.addEventListener('DOMContentLoaded', () => {
       btnTrendNext.innerText = "Siguiente";
     }
   });
-// disparar el evento resize cuando cargar el navegador
+  // disparar el evento resize cuando cargar el navegador
   window.dispatchEvent(new Event('resize'));
 
-// Conteneder peliculas aclamadas
+  // Conteneder peliculas aclamadas
   const acclaimedsContainer = document.querySelector("#acclaimedsContainer");
-//  Botón next slice peliculas aclamadas
+  //  Botón next slice peliculas aclamadas
   const acclaimedBtnNext = document.querySelector("#acclaimedBtnNext");
-//  Botón prev slice peliculas aclamadas
+  //  Botón prev slice peliculas aclamadas
   const acclaimedBtnPrev = document.querySelector("#acclaimedBtnPrev");
-// Evento click botón next - mover slice hacia la izquierda
+  // Evento click botón next - mover slice hacia la izquierda
   acclaimedBtnNext.addEventListener('click', () => {
     acclaimedsContainer.scrollLeft += 400;
   });
-// Evento click botón prev - mover slice hacia la izquierda
+  // Evento click botón prev - mover slice hacia la izquierda
   acclaimedBtnPrev.addEventListener('click', () => {
     acclaimedsContainer.scrollLeft -= 400;
   });
 
-//Scroll aclamadas - detectar inicio/fin para mostrar/ocultar botones next ó prev
+  //Scroll aclamadas - detectar inicio/fin para mostrar/ocultar botones next ó prev
   function verifyScrollAcclaimed() {
     // Verificar la posición final del contenedor
     if (acclaimedsContainer.scrollWidth - acclaimedsContainer.scrollLeft === acclaimedsContainer.clientWidth) {
@@ -91,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
       acclaimedBtnPrev.classList.remove('acclaimed_btn-hide');
     }
   };
-// Llamar a función verificar scroll position y escuchar el evento scroll haciendo la verificación
+  // Llamar a función verificar scroll position y escuchar el evento scroll haciendo la verificación
   verifyScrollAcclaimed();
   acclaimedsContainer.addEventListener('scroll', verifyScrollAcclaimed);
 
@@ -100,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchContainer = document.querySelector("#searchContainer"); //contenedor search
   const trendsContainer = document.querySelector('#trends'); // contenedor peliculas - tendencias
   const acclaimedContainer = document.querySelector('#acclaimeds') // contenedor peliculas - aclamadas
-// Escuchar evento scroll
+  // Escuchar evento scroll
   window.addEventListener('scroll', () => {
     const scrollPos = window.scrollY || window.scrollTop;
     const windowHeight = window.innerHeight;

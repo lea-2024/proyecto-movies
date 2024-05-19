@@ -4,6 +4,12 @@ const pagination = document.querySelector('#pagination');
 let page = 1;
 
 
+// Función para hacer scroll hacia arriba
+const goToTop = () => {
+  document.body.scrollTop = 0; // Ir hacia arriba - opción para unos navegadores
+  document.documentElement.scrollTop = 0; // Ir hacia arriba - optimo para otros navegadores
+};
+
 // mostrar spinner cuando cargan los datos
 const loadingCards = () => {
   const loading = document.createElement('div');
@@ -45,6 +51,7 @@ const getData = async (url) => {
   buttonRight.addEventListener('click', async () => {
     page++;
     chequearPagina(page, buttonLeft, buttonRight); // llamar a funcion para chequear la página actual
+    goToTop();
     characters.innerHTML = '';
     dataApi = await getData(dataApi.info.next);
     dataApi.results.forEach(element => {
@@ -62,7 +69,7 @@ const getData = async (url) => {
     }
 
     chequearPagina(page, buttonLeft, buttonRight); // llamar a funcion para chequear la página actual
-
+    goToTop();
     characters.innerHTML = '';
     dataApi = await getData(dataApi.info.prev);
     dataApi.results.forEach(element => {
