@@ -6,10 +6,8 @@ let validarEmail = false;
 let validarPassword = false;
 
 
-
 // Caputar el evento submit del formulario
 formLogin.addEventListener('submit', (event) => {
-  console.log('Hiciste click en ingresar');
   validateForm(event);
 });
 
@@ -18,9 +16,7 @@ formLogin.addEventListener('submit', (event) => {
 const validateForm = (event) => {
   const email = document.querySelector('#email').value;
   const password = document.querySelector('#password').value;
-
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // expresión regular para validar email en formato correcto
-
 
   // Validar email, vacio, formato correcto
   if (email.trim() === '') {
@@ -49,7 +45,7 @@ const validateForm = (event) => {
     validarPassword = true;
   };
 
-  // LLamaa a función Mensaje de exito validaciones
+  // LLamar a función Mensaje de exito validaciones
   if (validarEmail && validarPassword) {
     event.preventDefault();
     messageSuccess();

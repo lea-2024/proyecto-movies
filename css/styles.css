@@ -86,6 +86,7 @@ header {
   font-weight: bolder;
 }
 
+/* link de login y API */
 .header_link-login {
   padding: 10px 14px;
   border-radius: 5px;
@@ -95,6 +96,13 @@ header {
   background-color: #000;
   color: white;
   transition: all ease-in-out 500ms;
+}
+
+/* color de fondo link API */
+.header_link-api{
+  padding: 8px 14px;
+  background-color: transparent;
+  border: 2px solid whitesmoke;
 }
 
 .header_link-login:hover {
@@ -164,7 +172,6 @@ header {
 .main_search_container {
   margin: 70px auto;
   opacity: 0;
-  /*transition: opacity 3s ease-in-out;*/
 }
 
 /*titulo search*/
@@ -466,32 +473,9 @@ footer {
 
 /* contenedor formulario de registro */
 .register_form_container {
-  /*display: flex;*/
-  /*justify-content: center;*/
-  /*flex-direction: column;*/
-  /*align-items: center;*/
   background-color: #222222;
-  /*width: 30%;*/
-  /*margin: 9rem auto 5rem auto;*/
-  /*padding: 20px 10px;*/
-  /*border-radius: 15px;*/
   box-shadow: 0 0 10px 2px #000;
 }
-
-/* titulo de formulario de registro */
-/*.register_form_title {*/
-/*  font-size: 2rem;*/
-/*}*/
-
-/* Formulario de registro */
-
-/* .register_form { */
-  /*display: flex;*/
-  /*flex-direction: column;*/
-  /*gap: 25px;*/
-  /*width: 80%;*/
-  /*margin-top: 40px;*/
-/* } */
 
 /* input formulario */
 .form_input {
@@ -516,9 +500,7 @@ footer {
   margin-top: 1px;
   font-size: 1.3rem;
   padding: 8px 15px;
-  /*border-radius: 7px;*/
   outline: none;
-  /*border: 2px solid #9f3647;*/
   background: transparent;
   color: gray;
   z-index: -1;
@@ -527,7 +509,6 @@ footer {
 /* ocultar el icono de calendario del input date */
 input[type="date"]::-webkit-calendar-picker-indicator {
   opacity: 0;
-  /*width: 100%;*/
   z-index: 1;
 }
 
@@ -670,6 +651,10 @@ input[type="date"] {
     padding: 10px 9px;
     font-size: 0.9rem;
   }
+  .header_link-api{
+    padding: 8px 9px;
+    font-size: 0.9rem;
+  }
 }
 
 
@@ -707,11 +692,17 @@ input[type="date"] {
     display: block;
     border-radius: 0;
     background-color: #000;
-    margin-bottom: -10px;
     text-align: center;
     padding: 10px 0;
     transition: none;
   }
+
+  /* color de fondo link API */
+.header_link-api{
+  background-color: #911b2e;
+  padding: 8px 0;
+  border: none;
+}
 
   /* efectos hover links */
   .header_link:hover {
@@ -719,6 +710,7 @@ input[type="date"] {
     padding: 10px 0;
     background-color: whitesmoke;
     color: #9f3647;
+    box-shadow: none;
   }
 
   .header_link-login:hover {

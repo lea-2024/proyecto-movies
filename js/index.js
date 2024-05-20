@@ -71,11 +71,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const widthWindow = window.innerWidth; // obtener el ancho de la ventana
     // Si el ancho es inferior a 576px mostrar iconos en botones
     if (widthWindow < 576) {
-      btnTrendPrev.innerHTML = "<i class=\"fa-solid fa-angle-left\"></i>";
-      btnTrendNext.innerHTML = "<i class=\"fa-solid fa-angle-right\"></i>";
+      if (btnTrendPrev && btnTrendNext) { // si existen los botones mostrar iconos
+
+        btnTrendPrev.innerHTML = "<i class=\"fa-solid fa-angle-left\"></i>";
+        btnTrendNext.innerHTML = "<i class=\"fa-solid fa-angle-right\"></i>";
+      }
     } else { // si es mayor a 576px mostrar el texto
-      btnTrendPrev.innerText = "Anterior";
-      btnTrendNext.innerText = "Siguiente";
+      if (btnTrendPrev && btnTrendNext) { // si existen los botones mostrar texto
+
+        btnTrendPrev.innerText = "Anterior";
+        btnTrendNext.innerText = "Siguiente";
+      };
     }
   });
   // disparar el evento resize cuando cargar el navegador
@@ -88,37 +94,40 @@ document.addEventListener('DOMContentLoaded', () => {
   //  Botón prev slice peliculas aclamadas
   const acclaimedBtnPrev = document.querySelector("#acclaimedBtnPrev");
   // Evento click botón next - mover slice hacia la izquierda
-  acclaimedBtnNext.addEventListener('click', () => {
-    acclaimedsContainer.scrollLeft += 400;
-  });
-  // Evento click botón prev - mover slice hacia la izquierda
-  acclaimedBtnPrev.addEventListener('click', () => {
-    acclaimedsContainer.scrollLeft -= 400;
-  });
+  if (acclaimedBtnNext && acclaimedBtnPrev) { // si existen los botones escuchar el evento click
+    acclaimedBtnNext.addEventListener('click', () => {
+      acclaimedsContainer.scrollLeft += 400;
+    });
+    // Evento click botón prev - mover slice hacia la izquierda
+    acclaimedBtnPrev.addEventListener('click', () => {
+      acclaimedsContainer.scrollLeft -= 400;
+    });
+  };
 
   //Scroll aclamadas - detectar inicio/fin para mostrar/ocultar botones next ó prev
-  function verifyScrollAcclaimed() {
-    // Verificar la posición final del contenedor
-    if (acclaimedsContainer.scrollWidth - acclaimedsContainer.scrollLeft === acclaimedsContainer.clientWidth) {
-      acclaimedBtnNext.disabled = true;
-      acclaimedBtnNext.classList.add('acclaimed_btn-hide');
-    } else {
-      acclaimedBtnNext.disabled = false;
-      acclaimedBtnNext.classList.remove('acclaimed_btn-hide');
-    }
-    // Verificar la posicion inicial del contenedor
-    if (acclaimedsContainer.scrollLeft === 0) {
-      acclaimedBtnPrev.disabled = true;
-      acclaimedBtnPrev.classList.add('acclaimed_btn-hide');
-    } else {
-      acclaimedBtnPrev.disabled = false;
-      acclaimedBtnPrev.classList.remove('acclaimed_btn-hide');
-    }
+  if (acclaimedsContainer) { // si el contenedor aclamadas existe escuchar y verificar el evento scroll
+    function verifyScrollAcclaimed() {
+      // Verificar la posición final del contenedor
+      if (acclaimedsContainer.scrollWidth - acclaimedsContainer.scrollLeft === acclaimedsContainer.clientWidth) {
+        acclaimedBtnNext.disabled = true;
+        acclaimedBtnNext.classList.add('acclaimed_btn-hide');
+      } else {
+        acclaimedBtnNext.disabled = false;
+        acclaimedBtnNext.classList.remove('acclaimed_btn-hide');
+      }
+      // Verificar la posicion inicial del contenedor
+      if (acclaimedsContainer.scrollLeft === 0) {
+        acclaimedBtnPrev.disabled = true;
+        acclaimedBtnPrev.classList.add('acclaimed_btn-hide');
+      } else {
+        acclaimedBtnPrev.disabled = false;
+        acclaimedBtnPrev.classList.remove('acclaimed_btn-hide');
+      }
+    };
+    // Llamar a función verificar scroll position y escuchar el evento scroll haciendo la verificación
+    verifyScrollAcclaimed();
+    acclaimedsContainer.addEventListener('scroll', verifyScrollAcclaimed);
   };
-  // Llamar a función verificar scroll position y escuchar el evento scroll haciendo la verificación
-  verifyScrollAcclaimed();
-  acclaimedsContainer.addEventListener('scroll', verifyScrollAcclaimed);
-
   /* escuchar evento scroll para que detecte en que sección del index estoy y aplique la animación correspondiente
     según donde este */
   const searchContainer = document.querySelector("#searchContainer"); //contenedor search
@@ -129,29 +138,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const scrollPos = window.scrollY || window.scrollTop;
     const windowHeight = window.innerHeight;
 
-    const rectSearch = searchContainer.getBoundingClientRect(); // obtener posicion scroll contenedor search
-    // Si el contenedor está a la altura de la ventana desde el borde superior
-    if (rectSearch.top - scrollPos < windowHeight) {
-      searchContainer.classList.add('anim_slice_up');
-    } else {
-      searchContainer.classList.remove('anim_slice_up');
-    }
+    // Obtener posicion scroll contenedor search
+    if (searchContainer) { // si el contenedor existe obtener posicion scroll contenedor search y aplicar animación
+      const rectSearch = searchContainer.getBoundingClientRect(); // obtener posicion scroll contenedor search
+      // Si el contenedor está a la altura de la ventana desde el borde superior
+      if (rectSearch.top - scrollPos < windowHeight) {
+        searchContainer.classList.add('anim_slice_up');
+      } else {
+        searchContainer.classList.remove('anim_slice_up');
+      }
+    };
     // Obtener posicion scroll contenedor peliculas - tendencias
-    const rectTrends = trendsContainer.getBoundingClientRect();
-    // Si el contenedor está a la altura de la ventana desde el borde superior
-    if (rectTrends.top - scrollPos < windowHeight) {
-      trendsContainer.classList.add('anim_slice_up');
-    } else {
-      trendsContainer.classList.remove('anim_slice_up');
-    }
+    if (trendsContainer) { // si el contenedor existe obtener posicion scroll contenedor peliculas - tendencias
+      const rectTrends = trendsContainer.getBoundingClientRect();
+      // Si el contenedor está a la altura de la ventana desde el borde superior
+      if (rectTrends.top - scrollPos < windowHeight) {
+        trendsContainer.classList.add('anim_slice_up');
+      } else {
+        trendsContainer.classList.remove('anim_slice_up');
+      }
+    };
     // Obtener posicion scroll contenedor peliculas - aclamadas
-    const rectAcclaimeds = acclaimedContainer.getBoundingClientRect();
-    // Si el contenedor está a la altura de la ventana desde el borde superior
-    if (rectAcclaimeds.top - scrollPos < windowHeight / 4) {
-      acclaimedContainer.classList.add('anim_slice_up');
-    } else {
-      acclaimedContainer.classList.remove('anim_slice_up');
-    }
+    if (acclaimedsContainer) { // si el contenedor existe obtener posicion scroll contenedor peliculas - aclamadas
+      const rectAcclaimeds = acclaimedContainer.getBoundingClientRect();
+      // Si el contenedor está a la altura de la ventana desde el borde superior
+      if (rectAcclaimeds.top - scrollPos < windowHeight / 4) {
+        acclaimedContainer.classList.add('anim_slice_up');
+      } else {
+        acclaimedContainer.classList.remove('anim_slice_up');
+      }
+    };
   });
 });
 
